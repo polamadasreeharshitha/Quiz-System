@@ -1,0 +1,62 @@
+Python 3.5.2 (default, Jul  5 2016, 12:43:10) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> str='abc%s'
+>>> print(str)
+abc%s
+>>> print(str%str)
+abcabc%s
+>>> print(str%str%str%str)
+abcabcabcabc%s
+>>> str='abc'
+>>> print(str%str%str%str)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: not all arguments converted during string formatting
+>>> str='abc=%s'
+>>> print(str%str%str%str)
+abc=abc=abc=abc=%s
+>>> str='abc=%s def'
+>>> print(str%str%str%str)
+abc=abc=abc=abc=%s def def def def
+>>> str='abc%s def'
+>>> print(str%str%str%str)
+abcabcabcabc%s def def def def
+>>> str='abc %s def'
+>>> print(str%str%str%str)
+abc abc abc abc %s def def def def
+>>> print(str%str)
+abc abc %s def def
+>>> str='abc %s def %s'
+>>> print(str%str)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: not enough arguments for format string
+>>> str='abc %s def %def'
+>>> print(str%str)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: not enough arguments for format string
+>>> print(str)
+abc %s def %def
+>>> print(str%str%str%str)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: not enough arguments for format string
+>>> KeyboardInterrupt
+>>> str='abc %s def %%def'
+>>> print(str)
+abc %s def %%def
+>>> print(str%str)
+abc abc %s def %%def def %def
+>>> >>> str='abc %s def %%%%def'
+>>> print(str%str)
+abc abc %s def %%%%def def %%def
+>>> print(str%str%str)
+abc abc abc %s def %%%%def def %%def def %def
+>>> print(str%str%str%str)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: not enough arguments for format string
+>>> 
+
